@@ -15,6 +15,15 @@
         <!-- Dynamic content will be loaded here -->
     </div>
 
+    <!-- Chatbot Button -->
+    <button id="chatbot-button" onclick="openChatbot()">Talk to the Chatbot</button>
+
+    <!-- Chatbot Popup Container -->
+    <div id="chatbot-container" class="chatbot-hidden">
+        <iframe id="chatbot-frame" src="" frameborder="0"></iframe>
+        <button id="close-chatbot" onclick="closeChatbot()">Close</button>
+    </div>
+
     <script>
         // Content for each section
         const pages = {
@@ -36,53 +45,6 @@
                 <button onclick="loadPage('meditation')">Meditation</button>
                 <button onclick="loadPage('workout')">Workout</button>
             `,
-            music: `
-                <h2>Music</h2>
-                <p>These are different Spotify playlists containing the music that worked the most for each participant in the project:</p>
-                <a href="https://open.spotify.com/playlist/1phKfHHRnVJWARr9UFiO64?si=FM8IYzuUT8yOezBHYoDhxQ&pi=e-0NzWxqIfQCmZ" target="_blank">Playlist 1</a>
-                <a href="https://open.spotify.com/playlist/3t3Bn3YrHlpn5MlU8xHFdG?si=u_vMI9a0SG6uaQaWAnYt-A&pi=e-v1Mzq_BLQvuI" target="_blank">Playlist 2</a>
-                <a href="https://open.spotify.com/playlist/6agdaFhR8N2uwKnzy6K3a3?si=jeDmJ2P6ST6V8jMSDJErNw&pi=e-GBnvXtZXSIyo" target="_blank">Playlist 3</a>
-                <a href="https://open.spotify.com/playlist/6pyZ68bqU8JNljVS0H7NV2?si=tZxGYXerQwacuHWMIQgYmA&pi=e-EutkCE-yRrm9" target="_blank">Playlist 4</a>
-                <a href="https://open.spotify.com/playlist/1CoKitnC6N9A1R6Hp2j2iC?si=T9DSIys2SnamnzLWe-kaYQ&pi=e--8qxdZmdSG21" target="_blank">Playlist 5</a>
-                <a href="https://open.spotify.com/playlist/5ZjUYIPHLt1Nb4elyamgDQ?si=vtHmBaN4SmW0ojzGX1qnhQ&pi=e-GRBagfHEQ6yN" target="_blank">Playlist 6</a>
-                <button onclick="loadPage('sections')">Back</button>
-            `,
-            podcast: `
-                <h2>Podcast</h2>
-                <p>Podcasts only work if they are talking about topics you are interested in. Popular examples include:</p>
-                <ul>
-                    <li><a href="https://open.spotify.com/show/29LjKwNI41bD09xNAMkQes?si=HG6p5utaQHe2GdHcgfcpDw" target="_blank">Football: Stick To Football</a></li>
-                    <li><a href="https://open.spotify.com/show/3fw0J3ai1JH9qSdWsCiYQv?si=T8XJe0ymQaismJP5ArFO-g" target="_blank">Politics: Path To Power</a></li>
-                    <li><a href="https://open.spotify.com/show/1mDl2B7a016YRXR2wSBy4T?si=CAuJZgM9RxqWA7T1kA0QzQ" target="_blank">Acting: The Rest Is Entertainment</a></li>
-                    <li><a href="https://open.spotify.com/show/0azMejb7zrmAqctVsUSAdq?si=J8p6_C2nT0e90-hMNjY2_Q" target="_blank">Cooking: Off Menu</a></li>
-                </ul>
-                <button onclick="loadPage('sections')">Back</button>
-            `,
-            friends: `
-                <h2>Friends</h2>
-                <p>Talking or playing with friends can either make you calm or increase your rage. Find friends with similar interests to enjoy games more.</p>
-                <button onclick="loadPage('sections')">Back</button>
-            `,
-            "typing-writing": `
-                <h2>Typing/Writing</h2>
-                <p>Typing or writing can help take your mind off games, making you less emotionally invested. Use this time to study or learn something new.</p>
-                <button onclick="loadPage('sections')">Back</button>
-            `,
-            eating: `
-                <h2>Eating</h2>
-                <p>Eating isn't the best solution but can still help. Avoid greasy foods as they may affect your performance and increase frustration.</p>
-                <button onclick="loadPage('sections')">Back</button>
-            `,
-            meditation: `
-                <h2>Meditation</h2>
-                <p>Meditation is a method that is used by a participant. There are many guided meditation videos online. You can find what one works best for you.</p>
-                <button onclick="loadPage('sections')">Back</button>
-            `,
-            workout: `
-                <h2>Workout</h2>
-                <p>Workout is a method that one participant says they use. If you have any weights at home, use these. Even if you don’t have weights, you can still use this method by doing exercises like push-ups and squats.</p>
-                <button onclick="loadPage('sections')">Back</button>
-            `,
         };
 
         // Load page
@@ -90,7 +52,25 @@
             document.getElementById('content').innerHTML = pages[page];
         }
 
+        // Load homepage initially
         loadPage('homepage');
+
+        // Open chatbot function
+        function openChatbot() {
+            const chatbotContainer = document.getElementById('chatbot-container');
+            const chatbotFrame = document.getElementById('chatbot-frame');
+
+            // Set Chatbase bot URL
+            chatbotFrame.src = "https://www.chatbase.co/chatbot-iframe/_e5OnKiCHphKMOR2sAvt2";
+
+            // Show chatbot container
+            chatbotContainer.classList.remove('chatbot-hidden');
+        }
+
+        // Close chatbot function
+        function closeChatbot() {
+            document.getElementById('chatbot-container').classList.add('chatbot-hidden');
+        }
     </script>
 </body>
 </html>
