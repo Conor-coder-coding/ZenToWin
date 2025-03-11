@@ -39,13 +39,48 @@ button:hover {
     background-color: #7B1FA2;
 }
 
-a {
-    color: #4A148C;
-    text-decoration: none;
-    display: block;
-    margin: 10px 0;
+/* Chatbot button */
+#chatbot-button {
+    background-color: #4A148C;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Chatbot container */
+#chatbot-container {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Initially hidden */
+.chatbot-hidden {
+    display: none;
+}
+
+/* Chatbot iframe */
+#chatbot-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Close chatbot button */
+#close-chatbot {
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
 }
